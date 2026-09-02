@@ -43,7 +43,7 @@
             lblTitle.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitle.Location = new Point(98, 35);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(194, 31);
+            lblTitle.Size = new Size(207, 27);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "BILLING SYSTEM";
             // 
@@ -115,7 +115,7 @@
             MinimizeBox = false;
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Billing System - Login";
+            Text = "Billing System - Login (M.A)";
             ResumeLayout(false);
             PerformLayout();
         }
