@@ -72,6 +72,7 @@
             btnDelete.TabIndex = 2;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click_1;
             // 
             // btnLogout
             // 
@@ -105,6 +106,8 @@
             dgvCustomers.Size = new Size(713, 301);
             dgvCustomers.TabIndex = 5;
             dgvCustomers.CellContentClick += dgvCustomers_CellContentClick;
+            dgvCustomers.CellDoubleClick += dgvCustomers_CellDoubleClick;
+            dgvCustomers.SelectionChanged += dgvCustomers_SelectionChanged;
             // 
             // CustomerID
             // 
