@@ -13,7 +13,11 @@ namespace BillingSystem.Database
         private const string SERVER = "localhost";
         private const string DATABASE = "BillingDB";
         private const string UID = "root";
+<<<<<<< HEAD
         private const string PASSWORD = "luispogi";  // Left blank for testing
+=======
+        private const string PASSWORD = "appdev2026";  // Left blank for testing
+>>>>>>> 77bf3cce4d16e11c2fd12bd6dfb06e4377f168bc
 
         private static string ConnectionString =>
             $"server={SERVER};database={DATABASE};uid={UID};pwd={PASSWORD};";
