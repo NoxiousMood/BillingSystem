@@ -9,14 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
     <PackageReference Include="ClosedXML" Version="0.105.1" />
     <PackageReference Include="MySql.Data" Version="26.7.0" />
     <PackageReference Include="PDFsharp-GDI" Version="6.2.4" />
     <PackageReference Include="ScottPlot.WinForms" Version="5.1.59" />
-=======
-    <PackageReference Include="MySql.Data" Version="26.7.0" />
->>>>>>> 77bf3cce4d16e11c2fd12bd6dfb06e4377f168bc
   </ItemGroup>
 
 </Project>

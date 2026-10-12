@@ -7,7 +7,6 @@ using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using BillingSystem.Database;
-<<<<<<< HEAD
 using ClosedXML.Excel;
 using System.IO;
 using PdfSharp.Pdf;
@@ -16,8 +15,8 @@ using PdfSharp.Drawing;
 
 
 
-=======
->>>>>>> 77bf3cce4d16e11c2fd12bd6dfb06e4377f168bc
+
+
 
 namespace BillingSystem
 {
@@ -266,7 +265,7 @@ namespace BillingSystem
             // Connected to the designer button event — now calls DeleteCustomer()
             DeleteCustomer();
         }
-<<<<<<< HEAD
+
 
         private void btnAnalytics_Click(object sender, EventArgs e)
         {
@@ -434,7 +433,6 @@ namespace BillingSystem
         }
 
 
-=======
->>>>>>> 77bf3cce4d16e11c2fd12bd6dfb06e4377f168bc
+
     }
 }
