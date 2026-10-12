@@ -50,7 +50,7 @@
             lblTitle.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblTitle.Location = new Point(108, 42);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(195, 28);
+            lblTitle.Size = new Size(203, 24);
             lblTitle.TabIndex = 0;
             lblTitle.Text = "Add New Customer";
             // 
@@ -144,6 +144,7 @@
             btnSave.TabIndex = 12;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // btnClear
             // 
@@ -187,6 +188,7 @@
             Name = "AddCustomerForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Billing System v1.0 - Add Customer (L.L)";
+            Load += AddCustomerForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }

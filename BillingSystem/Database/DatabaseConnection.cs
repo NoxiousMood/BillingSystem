@@ -13,7 +13,7 @@ namespace BillingSystem.Database
         private const string SERVER = "localhost";
         private const string DATABASE = "BillingDB";
         private const string UID = "root";
-        private const string PASSWORD = "luispogi";  // Add your MySQL password here
+        private const string PASSWORD = "luispogi";  // Left blank for testing
 
         private static string ConnectionString =>
             $"server={SERVER};database={DATABASE};uid={UID};pwd={PASSWORD};";
@@ -37,17 +37,10 @@ namespace BillingSystem.Database
                     return true;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show(
-                    "Database Error:\n\n" + ex.Message,
-                    "Connection Error",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-
                 return false;
             }
         }
     }
 }
-
