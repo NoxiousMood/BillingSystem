@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using BillingSystem.Database;
+using BillingSystem.Utils; // <--- Added to access AppSession and AuditLogger
 
 namespace BillingSystem
 {
@@ -34,14 +35,14 @@ namespace BillingSystem
         {
             if (_editCustomerId > 0)
             {
-                // EDIT MODE - change the title and load existing data[cite: 10]
+                // EDIT MODE - change the title and load existing data
                 lblTitle.Text = "Edit Customer";
                 this.Text = "Billing System - Edit Customer";
                 LoadCustomerData(_editCustomerId);
             }
             else
             {
-                // ADD MODE - set default values[cite: 10]
+                // ADD MODE - set default values
                 lblTitle.Text = "Add New Customer";
                 txtBalance.Text = "0.00";
             }
@@ -134,16 +135,16 @@ namespace BillingSystem
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            // Step 1: Validate input before touching the database[cite: 13]
+            // Step 1: Validate input before touching the database
             if (!ValidateInputs()) return;
 
             if (_editCustomerId == 0)
             {
-                InsertCustomer(); // ADD mode from Activity 3[cite: 13]
+                InsertCustomer(); // ADD mode
             }
             else
             {
-                UpdateCustomer(); // EDIT mode - new in Activity 4[cite: 13]
+                UpdateCustomer(); // EDIT mode
             }
         }
 
@@ -174,6 +175,9 @@ namespace BillingSystem
 
                         if (rowsAffected > 0)
                         {
+                            // Write audit log entry for Add Customer
+                            AuditLogger.Log("ADD_CUSTOMER", $"New customer '{txtFullName.Text.Trim()}' added by {AppSession.CurrentUsername}.");
+
                             MessageBox.Show("Customer saved successfully.", "Saved", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             ClearFields();
                         }
@@ -194,7 +198,7 @@ namespace BillingSystem
                 {
                     conn.Open();
 
-                    // Parameterized UPDATE - only the row matching @CustomerID is changed[cite: 14]
+                    // Parameterized UPDATE - only the row matching @CustomerID is changed
                     string sql = @"UPDATE Customers
                                    SET FullName = @FullName,
                                        Address = @Address,
@@ -216,8 +220,11 @@ namespace BillingSystem
 
                         if (rowsAffected > 0)
                         {
+                            // Write audit log entry for Edit Customer
+                            AuditLogger.Log("EDIT_CUSTOMER", $"Customer ID {_editCustomerId} updated by {AppSession.CurrentUsername}.");
+
                             MessageBox.Show("Customer updated successfully.", "Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            this.Close(); // Close the form - CustomerListForm will refresh on close[cite: 15]
+                            this.Close(); // Close the form - CustomerListForm will refresh on close
                         }
                         else
                         {
