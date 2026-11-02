@@ -148,5 +148,7 @@ namespace BillingSystem
         private void txtRetypePassword_TextChanged(object sender, EventArgs e) { }
         private void txtCurrentPassword_TextChanged(object sender, EventArgs e) { }
         private void frmChangePassword_Load(object sender, EventArgs e) { }
+
+        private void frmChangePasswd_Load(object sender, EventArgs e) { }
     }
 }
