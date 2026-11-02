@@ -53,6 +53,7 @@
             lblStatusTime = new ToolStripStatusLabel();
             statusTimer = new System.Windows.Forms.Timer(components);
             btnChangePassword = new Button();
+            btnViewBilling = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvCustomers).BeginInit();
             statusStrip1.SuspendLayout();
             SuspendLayout();
@@ -99,13 +100,13 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(641, 36);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(94, 29);
-            this.btnSearch.TabIndex = 4;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            btnSearch.Location = new Point(641, 36);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(94, 29);
+            btnSearch.TabIndex = 4;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // dgvCustomers
             // 
@@ -125,58 +126,58 @@
             // 
             // CustomerID
             // 
-            this.CustomerID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.CustomerID.Frozen = true;
-            this.CustomerID.HeaderText = "ID";
-            this.CustomerID.MinimumWidth = 6;
-            this.CustomerID.Name = "CustomerID";
-            this.CustomerID.ReadOnly = true;
-            this.CustomerID.Width = 125;
+            CustomerID.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            CustomerID.Frozen = true;
+            CustomerID.HeaderText = "ID";
+            CustomerID.MinimumWidth = 6;
+            CustomerID.Name = "CustomerID";
+            CustomerID.ReadOnly = true;
+            CustomerID.Width = 125;
             // 
             // FullName
             // 
-            this.FullName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.FullName.HeaderText = "Full Name";
-            this.FullName.MinimumWidth = 6;
-            this.FullName.Name = "FullName";
-            this.FullName.ReadOnly = true;
-            this.FullName.Width = 108;
+            FullName.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            FullName.HeaderText = "Full Name";
+            FullName.MinimumWidth = 6;
+            FullName.Name = "FullName";
+            FullName.ReadOnly = true;
+            FullName.Width = 108;
             // 
             // Address
             // 
-            this.Address.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Address.HeaderText = "Address";
-            this.Address.MinimumWidth = 6;
-            this.Address.Name = "Address";
-            this.Address.ReadOnly = true;
-            this.Address.Width = 108;
+            Address.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            Address.HeaderText = "Address";
+            Address.MinimumWidth = 6;
+            Address.Name = "Address";
+            Address.ReadOnly = true;
+            Address.Width = 108;
             // 
             // ContactNumber
             // 
-            this.ContactNumber.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.ContactNumber.HeaderText = "Contact No.";
-            this.ContactNumber.MinimumWidth = 6;
-            this.ContactNumber.Name = "ContactNumber";
-            this.ContactNumber.ReadOnly = true;
-            this.ContactNumber.Width = 107;
+            ContactNumber.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            ContactNumber.HeaderText = "Contact No.";
+            ContactNumber.MinimumWidth = 6;
+            ContactNumber.Name = "ContactNumber";
+            ContactNumber.ReadOnly = true;
+            ContactNumber.Width = 107;
             // 
             // Email
             // 
-            this.Email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Email.HeaderText = "Email";
-            this.Email.MinimumWidth = 6;
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            this.Email.Width = 108;
+            Email.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            Email.HeaderText = "Email";
+            Email.MinimumWidth = 6;
+            Email.Name = "Email";
+            Email.ReadOnly = true;
+            Email.Width = 108;
             // 
             // Balance
             // 
-            this.Balance.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Balance.HeaderText = "Balance";
-            this.Balance.MinimumWidth = 6;
-            this.Balance.Name = "Balance";
-            this.Balance.ReadOnly = true;
-            this.Balance.Width = 108;
+            Balance.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            Balance.HeaderText = "Balance";
+            Balance.MinimumWidth = 6;
+            Balance.Name = "Balance";
+            Balance.ReadOnly = true;
+            Balance.Width = 108;
             // 
             // Status
             // 
@@ -197,7 +198,7 @@
             // 
             // btnAnalytics
             // 
-            btnAnalytics.Location = new Point(241, 415);
+            btnAnalytics.Location = new Point(204, 415);
             btnAnalytics.Name = "btnAnalytics";
             btnAnalytics.Size = new Size(126, 29);
             btnAnalytics.TabIndex = 7;
@@ -207,7 +208,7 @@
             // 
             // btnExportExcel
             // 
-            btnExportExcel.Location = new Point(413, 415);
+            btnExportExcel.Location = new Point(345, 415);
             btnExportExcel.Name = "btnExportExcel";
             btnExportExcel.Size = new Size(130, 29);
             btnExportExcel.TabIndex = 8;
@@ -217,7 +218,7 @@
             // 
             // btnExportPdf
             // 
-            btnExportPdf.Location = new Point(593, 415);
+            btnExportPdf.Location = new Point(492, 415);
             btnExportPdf.Name = "btnExportPdf";
             btnExportPdf.Size = new Size(131, 29);
             btnExportPdf.TabIndex = 9;
@@ -227,7 +228,7 @@
             // 
             // btnManagePermissions
             // 
-            btnManagePermissions.Location = new Point(44, 415);
+            btnManagePermissions.Location = new Point(35, 415);
             btnManagePermissions.Name = "btnManagePermissions";
             btnManagePermissions.Size = new Size(153, 29);
             btnManagePermissions.TabIndex = 10;
@@ -285,11 +286,22 @@
             btnChangePassword.UseVisualStyleBackColor = true;
             btnChangePassword.Click += btnChangePassword_Click;
             // 
+            // btnViewBilling
+            // 
+            btnViewBilling.Location = new Point(642, 415);
+            btnViewBilling.Name = "btnViewBilling";
+            btnViewBilling.Size = new Size(105, 29);
+            btnViewBilling.TabIndex = 14;
+            btnViewBilling.Text = "View Billing";
+            btnViewBilling.UseVisualStyleBackColor = true;
+            btnViewBilling.Click += btnViewBilling_Click;
+            // 
             // CustomerListForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(782, 479);
+            Controls.Add(btnViewBilling);
             Controls.Add(btnChangePassword);
             Controls.Add(statusStrip1);
             Controls.Add(btnAuditLog);
@@ -341,5 +353,6 @@
         private System.Windows.Forms.ToolStripStatusLabel lblStatusTime;
         private System.Windows.Forms.Timer statusTimer;
         private Button btnChangePassword;
+        private Button btnViewBilling;
     }
 }

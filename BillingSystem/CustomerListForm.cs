@@ -646,5 +646,24 @@ namespace BillingSystem
             frmChangePassword changePasswordForm = new frmChangePassword(1); // Replace 1 with an existing User ID in your database
             changePasswordForm.ShowDialog();
         }
+
+        private void btnViewBilling_Click(object sender, EventArgs e)
+        {
+            // Check if a row is selected in the DataGridView (dgvCustomers)
+            if (dgvCustomers.SelectedRows.Count == 0)
+            {
+                // Popup 1: No Customer Selected Requirement
+                MessageBox.Show("Please select a customer from the list first.", "No Selection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // Stop execution without opening frmBillingHistory
+            }
+
+            // Retrieve the CustomerId column value from the selected row
+            // Ensure "CustomerId" matches the exact column name in your DataGridView/DataTable
+            int selectedCustomerId = Convert.ToInt32(dgvCustomers.SelectedRows[0].Cells["CustomerId"].Value);
+
+            // Open frmBillingHistory passing the selected CustomerId
+            frmBillingHistory billingHistoryForm = new frmBillingHistory(selectedCustomerId);
+            billingHistoryForm.ShowDialog();
+        }
     }
 }
