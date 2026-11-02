@@ -1,5 +1,8 @@
+using System;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using BillingSystem.Database;
+using BillingSystem.Utils; // <--- Added to access AppSession and AuditLogger
 
 namespace BillingSystem
 {
@@ -56,6 +59,15 @@ namespace BillingSystem
                         {
                             if (reader.Read())
                             {
+                                // Populate AppSession with the logged-in user's details
+                                AppSession.CurrentUserID = reader.GetInt32("UserID");
+                                AppSession.CurrentUsername = txtUsername.Text.Trim();
+                                AppSession.CurrentFullName = reader.GetString("FullName");
+                                AppSession.CurrentRole = reader.GetString("Role");
+
+                                // Write a LOGIN audit log entry
+                                AuditLogger.Log("LOGIN", $"{AppSession.CurrentFullName} ({AppSession.CurrentRole}) logged in.");
+
                                 // Credentials matched — open the Customer List form
                                 CustomerListForm listForm = new CustomerListForm();
                                 listForm.Show();
