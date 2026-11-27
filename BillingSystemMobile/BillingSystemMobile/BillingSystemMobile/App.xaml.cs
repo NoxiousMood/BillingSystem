@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-
-namespace BillingSystemMobile
+﻿namespace BillingSystemMobile
 {
     public partial class App : Application
     {
@@ -11,6 +9,7 @@ namespace BillingSystemMobile
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
+            // AppShell shows LoginPage first
             return new Window(new AppShell());
         }
     }
